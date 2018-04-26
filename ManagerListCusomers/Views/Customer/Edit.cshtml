@@ -1,0 +1,52 @@
+﻿@using ManagerListCusomers.Models
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/css/table.css">
+</head>
+<body>
+    <div>
+        <table class="w3-table-all w3-card-4">
+          
+            @using (Html.BeginForm("ActionEdit", "Customer", FormMethod.Post))
+            {
+                Customer ct = (Customer)ViewData["ct"];
+                    <tr>
+                        <td>Code</td>
+                        <td>@Html.TextBox("txtCode", ct.CustomerNo)</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>@Html.TextBox("txtName",ct.CustomerName)</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>@Html.TextBox("txtAddress",ct.CustomerAddress)</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>@Html.TextBox("txtPhone",ct.CustomerPhone)</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>@Html.TextBox("txtEmail",ct.CustomerEmail)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">
+                            <input type="submit" value="Save" />
+                        </td>
+                    </tr>
+                
+
+            }
+        </table>
+
+    </div>
+</body>
+</html>

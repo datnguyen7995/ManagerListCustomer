@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/css/table.css">
+</head>
+<body>
+    <div>
+        <table class="w3-table-all w3-card-4">
+            @using (Html.BeginForm("ActionAdd", "Customer", FormMethod.Post))
+            {
+                <tr>
+                    <td>Code</td>
+                    <td>@Html.TextBox("txtCode")</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>@Html.TextBox("txtName")</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>@Html.TextBox("txtAddress")</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>@Html.TextBox("txtPhone")</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@Html.TextBox("txtEmail")</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Save" />
+                    </td>
+                </tr>
+            }
+        </table>
+          
+    </div>
+</body>
+</html>

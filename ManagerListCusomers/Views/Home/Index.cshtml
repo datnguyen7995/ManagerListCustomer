@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+@using ManagerListCusomers.Models;
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Customer</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/css/table.css">
+</head>
+<body>
+    <div>
+        <button class="w3-button w3-white w3-border w3-round-large">
+            @Html.ActionLink("Add", "Add", "Customer")
+        </button> 
+        <table class="w3-table-all w3-card-4">
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+            @foreach (Customer item in (List<Customer>)ViewData["lstCustomer"])
+            {
+               <tr>
+                   <td>@item.CustomerNo</td>
+                   <td>@item.CustomerName</td>
+                   <td>@item.CustomerAddress</td>
+                   <td>@item.CustomerPhone</td>
+                   <td>@item.CustomerEmail</td>
+                   <td>
+                       <button class="w3-button w3-white w3-border w3-round-large">
+                           @Html.ActionLink("Edit", "ActionEdit", "Customer")
+                       </button> 
+                       <button class="w3-button w3-white w3-border w3-round-large">
+                          @Html.ActionLink("Delete", "ActionDelete/"+ item.CustomerID, "Customer",null, new {
+                         onclick="return confirm('Are you sure?')"
+                     })
+                       </button> 
+                       <button class="w3-button w3-white w3-border w3-round-large">
+                           @Html.ActionLink("Send Mail", "send", "Customer")
+                       </button> 
+                       
+                   </td>
+               </tr>
+            }
+        </table> 
+    </div>
+</body>
+</html>
